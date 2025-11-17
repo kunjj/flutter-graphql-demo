@@ -13,32 +13,17 @@ class DioLink extends Link {
   DioLink(this.endpoint, this._dio);
 
   @override
-  Stream<gql.Response> request(
-    gql.Request request, [
-    NextLink? forward,
-  ]) async* {
+  Stream<gql.Response> request(gql.Request request, [NextLink? forward]) async* {
     try {
       final response = await _dio.post(
         endpoint,
-        data: {
-          'query': printNode(request.operation.document),
-          'variables': request.variables,
-        },
-        options: dio.Options(
-          headers: {
-            'Content-Type': 'application/json',
-            ...?request.context.entry<HttpLinkHeaders>()?.headers,
-          },
-        ),
+        data: {'query': printNode(request.operation.document), 'variables': request.variables},
+        options: dio.Options(headers: {'Content-Type': 'application/json'}),
       );
 
       final responseData = response.data;
 
-      yield gql.Response(
-        data: responseData['data'],
-        response: responseData,
-        context: gql.Context(),
-      );
+      yield gql.Response(data: responseData['data'], response: responseData, context: gql.Context());
     } on dio.DioException catch (e) {
       yield gql.Response(
         data: null,
