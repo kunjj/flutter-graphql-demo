@@ -1,16 +1,39 @@
-# graphql_demo_app
+A Flutter application demonstrating a clean and scalable approach to working with GraphQL APIs.
 
-A new Flutter project.
+Overview
 
-## Getting Started
+This project shows how to build a Flutter app that interacts with a GraphQL backend using a structured architecture.
+It brings together several tools to create a reliable development setup:
 
-This project is a starting point for a Flutter application.
+GraphQL Flutter — Handles queries, mutations, and subscriptions with a type-safe, declarative API.
 
-A few resources to get you started if this is your first Flutter project:
+Dio — Wrapped around the GraphQL client to provide improved error handling, interceptors, and network logging.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Flutter BLoC — Used as the state management layer to keep UI updates predictable and easy to test.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+These tools work together to demonstrate a practical pattern you can use in real projects.
+
+Pubspec Plugins Used
+
+Below are the key dependencies included in this project:
+
+graphql_flutter – Core library for making GraphQL requests in Flutter.
+
+dio – HTTP client used for custom error handling and request configuration.
+
+flutter_bloc – State management using the BLoC (Business Logic Component) pattern.
+
+json_annotation / json_serializable / build_runner – Used for generating model classes and handling JSON mapping cleanly.
+
+(If you have more dependencies, you can list them here following the same pattern.)
+
+Getting Started
+
+If you’re new to Flutter, these official resources can help you get comfortable with the basics:
+
+Write your first Flutter app
+
+Cookbook: Useful Flutter samples
+
+For complete guidance on Flutter development, visit the Flutter documentation
+.
